@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'kanit': ['Kanit'],
+        'robotos': ['Roboto Slab'],
         'ubuntu': ['Ubuntu'],
         'montserrat': ['Montserrat'],
       }

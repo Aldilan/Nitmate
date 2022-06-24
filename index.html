@@ -10,12 +10,14 @@
     <title>Nitmate</title>
 </head>
 <body>
-    <!-- <a href="src/views/png.html">f</a> -->
+    <input class="before:hidden after:hidden scale-100 opacity-100 translate-x-full border-[#3686A0] text-[#3686A0] before:translate-x-full bg-[#3686A0]" type="hidden">
     <nav class="text-black min-w-full fixed z-10 pl-5 dark:text-white">
         <div class="w-full flex justify-between items-center relative">
-            <a data-aos="fade-left" href=""><img src="" alt="">lkdfjlkjdf</a>
+            <div class="relative h-8 w-11 bg-[#B20600] rounded-lg">
+                <a class="absolute left-[0.5rem] top-1/2 -translate-y-1/2 font-ubuntu text-xl after:content-['mate'] after:ml-3 text-white after:text-black dark:after:text-white" href="">Nit</a>
+            </div>
             <button data-aos="fade-in" class="w-16 h-16" id="menuBtn"><i class='bx bx-menu text-3xl'></i></button>
-            <div class="hidden bg-white z-10 absolute right-0 bottom-0 translate-y-full" id="menu">
+            <div class="scale-0 transition-all duration-300 bg-white z-10 absolute right-0 bottom-0 translate-y-full" id="menu">
                 <div class="shadow-md px-6 py-4 dark:bg-[#101820] flex flex-col gap-10 text-center">          
                     <span>ABOUT</span>
                     <div class="flex text-lg gap-2 justify-center">
@@ -23,24 +25,24 @@
                         <div class="relative w-[2.3rem] h-5 p-2 border-2 rounded-full border-amber-400 bg-amber-400 cursor-pointer" id="modeTgl">
                             <div class="absolute w-4 h-4 rounded-full bg-white top-1/2 -translate-y-1/2 left-0 translate-x-0 transition-full duration-300" id="modeTglCrl"></div>
                         </div>
-                        <i class='bx bxs-moon text-slate-200' id="moon"></i>
+                        <i class='bx bxs-moon text-slate-200 ' id="moon"></i>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
-    <main class="h-screen w-full relative dark:bg-[#15202B] dark:text-white">
+    <main class="h-screen min-w-full max-w-full overflow-hidden font-montserrat relative dark:bg-[#15202B] dark:text-white">
         <section class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex flex-col gap-2">
             <div class="flex items-center justify-center">
                 <input class="w-64 py-2 px-4 text-black" type="text" id="urlInput" placeholder="Paste your YouTube link here....">
-                <button id="pasteBtn"><i class='bx bxs-paste text-white bg-[#B20600] text-lg p-3 hover:bg-[#B20600]/75'></i></button>
+                <button id="pasteBtn"><i class='bx bxs-paste text-white bg-[#B20600] text-lg p-3 hover:bg-[#B20600]/75 transition-all'></i></button>
             </div>
             <div class="flex flex-col items-center justify-center gap-1">
                 <div class="w-full border-b-[2px] border-[#B20600] relative flex items-center justify-center before:-z-10 before:content-[''] before:absolute before:w-1/2 before:h-full before:left-0 before:-translate-x-full overflow-hidden before:bg-[#B20600] transition-all before:transition-all before:duration-300" id="downFormat">
                     <span class="text-center w-1/2 py-2 hover:text-[#B20600] transition-all cursor-pointer">Video</span>
                     <span class="text-center w-1/2 py-2 hover:text-[#B20600] transition-all cursor-pointer">Audio</span>
                 </div>
-                <div class="relative flex items-center justify-center w-full h-60 overflow-hidden">
+                <div class="relative flex items-center justify-center w-full h-48 overflow-hidden">
                     <div class="absolute left-0 top-0 -translate-x-full flex flex-col min-w-full transition-all" id="downVideo">
                         <button class="overflow-hidden relative py-2 before:absolute before:top-0 before:left-0 before:w-full before:py-2 before:-translate-x-full before:content-['Download'] before:bg-[#B20600] before:text-white hover:before:translate-x-0 transition-all before:transition-all before:duration-300 downOption" value="360">360p</button>
                         <button class="overflow-hidden relative py-2 before:absolute before:top-0 before:left-0 before:w-full before:py-2 before:-translate-x-full before:content-['Download'] before:bg-[#B20600] before:text-white hover:before:translate-x-0 transition-all before:transition-all before:duration-300 downOption" value="480">480p</button>
@@ -49,26 +51,42 @@
                     </div>
                     <div class="absolute left-0 top-0 -translate-x-full flex flex-col min-w-full transition-all" id="downAudio">
                         <button class="overflow-hidden relative py-2 before:absolute before:top-0 before:left-0 before:w-full before:py-2 before:-translate-x-full before:content-['Download'] before:bg-[#B20600] before:text-white hover:before:translate-x-0 transition-all before:transition-all before:duration-300 downOption" value="mp3">mp3</button>
-                        <button class="overflow-hidden relative py-2 before:absolute before:top-0 before:left-0 before:w-full before:py-2 before:-translate-x-full before:content-['Download'] before:bg-[#B20600] before:text-white hover:before:translate-x-0 transition-all before:transition-all before:duration-300 downOption" value="mp4a">mp4a</button>
-                        <button class="overflow-hidden relative py-2 before:absolute before:top-0 before:left-0 before:w-full before:py-2 before:-translate-x-full before:content-['Download'] before:bg-[#B20600] before:text-white hover:before:translate-x-0 transition-all before:transition-all before:duration-300 downOption" value="webm">webm</button>
                     </div>
                     <div class="absolute translate-x-0 left-0 top-10 flex flex-col min-w-full transition-all justify-center items-center" id="downBefore">
                         <span class="relative text-xl text-center after:content-['.'] after:text-[#B20600] after:text-xl">Choose what you want to download</span>
                     </div>
                 </div>
-                <!-- <iframe src="" class="h-40 w-96" frameborder="0" id="btnContainer"></iframe> -->
             </div>
+            <iframe class="h-12 border-none scale-0 transition-all overflow-hidden" src="" frameborder="0" id="btnContainer"></iframe>
         </section>
         <footer class="absolute gap-1 w-full px-5 py-4 flex items-center justify-between bg-white dark:bg-[#101820] bottom-0 rounded-t-lg shadow-2xl shadow-black">
-            <section>
-                <a href="https://www.facebook.com/aldilan.180705/"><i class='bx bxl-facebook text-xl hover:text-[#B20600] transition'></i></a>
-                <a href="https://www.instagram.com/dilannhr_/"><i class='bx bxl-instagram text-xl hover:text-[#B20600] transition'></i></a>
-                <a href="https://github.com/Aldilan/Nitmate"><i class='bx bxl-github text-xl hover:text-[#B20600] transition'></i></a>
-                <a href="https://www.linkedin.com/in/aldilan-hermawan-780393205/"><i class='bx bxl-linkedin text-xl hover:text-[#B20600] transition'></i></a>
+            <section class="flex items-center w-1/2 gap-1">
+                <div class="flex items-center justify-start overflow-hidden h-10 w-5 hover:w-[6.25rem] transition-all duration-500">
+                    <a class="flex gap-1" href="https://www.linkedin.com/in/aldilan-hermawan-780393205/"><i class='bx bxl-facebook text-xl hover:text-[#B20600] transition-all'></i><span class="relative after:absolute after:content-[''] after:left-0 after:h-[1px] after:translate-x-full overflow-hidden after:transition-all after:duration-500 hover:after:translate-x-0 after:w-full after:bottom-0 after:bg-[#B20600] hover:text-[#B20600] transition-al">Facebook</span></a>
+                </div>
+                <div class="flex items-center justify-start overflow-hidden h-10 w-5 hover:w-[6.6rem] transition-all duration-500">
+                    <a class="flex gap-1" href="https://www.instagram.com/dilannhr_/"><i class='bx bxl-instagram text-xl hover:text-[#B20600] transition-all'></i><span class="relative after:absolute after:content-[''] after:left-0 after:h-[1px] after:translate-x-full overflow-hidden after:transition-all after:duration-500 hover:after:translate-x-0 after:w-full after:bottom-0 after:bg-[#B20600] hover:text-[#B20600] transition-al">Instagram</span></a>
+                </div>
+                <div class="flex items-center justify-start overflow-hidden h-10 w-5 hover:w-[5rem] transition-all duration-500">
+                    <a class="flex gap-1" href="https://github.com/Aldilan/Nitmate"><i class='bx bxl-github text-xl hover:text-[#B20600] transition-all'></i><span class="relative after:absolute after:content-[''] after:left-0 after:h-[1px] after:translate-x-full overflow-hidden after:transition-all after:duration-500 hover:after:translate-x-0 after:w-full after:bottom-0 after:bg-[#B20600] hover:text-[#B20600] transition-al">Github</span></a>
+                </div>
+                <div class="flex items-center justify-start overflow-hidden h-10 w-5 hover:w-[5.75rem] transition-all duration-500">
+                    <a class="flex gap-1" href="https://www.linkedin.com/in/aldilan-hermawan-780393205/"><i class='bx bxl-linkedin text-xl hover:text-[#B20600] transition-all'></i><span class="relative after:absolute after:content-[''] after:left-0 after:h-[1px] after:translate-x-full overflow-hidden after:transition-all after:duration-500 hover:after:translate-x-0 after:w-full after:bottom-0 after:bg-[#B20600] hover:text-[#B20600] transition-all">Linkedin</span></a>
+                </div>
             </section>
-            <span class="font-montserrat dark:text-gray-200">Nitmate 2022 ©</span>
+            <span class="font-montserrat w-1/2 text-end dark:text-gray-200">Nitmate 2022 ©</span>
         </footer>
     </main>
+    <section class="group fixed cursor-pointer flex items-center justify-center bottom-0 -translate-y-24 scale-0 dark:bg-[#101820] dark:text-white dark:hover:bg-[#B20600] dark:hover:text-black hover:bg-[#B20600] transition-all duration-300 aspect-square w-12 h-12 right-4 rounded-full z-10 bg-white shadow-md" id="infoBtn">
+        <div class="relative before:hidden after:hidden before:content-[''] before:absolute before:-top-2 before:left-[21px] before:animate-ping before:w-3 before:h-3 before:rounded-full before:bg-red-500 after:content-[''] after:absolute after:-top-2 after:left-[21px] after:w-3 after:h-3 after:rounded-full after:bg-red-500">
+            <span class="group-hover:text-white text-2xl font-robotos transition-all dark:text-white">i</span>
+            <div class="absolute left-0 -translate-x-[7.35rem] w-[5.25rem] pl-1 bottom-0 bg-gray text-white bg-[#B20600] rounded-r-lg invisible transition-all" id="exInfoBtn">
+                <div class="relative before:absolute before:right-0 before:rotate-45 before:top-1/2 before:-translate-y-1/2 before:translate-x-1/2 before:w-3 before:h-3 before:bg-[#B20600] before:content-['']">
+                    Click here
+                </div>
+            </div>
+        </div>
+    </section>
     
     <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

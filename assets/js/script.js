@@ -2,21 +2,24 @@
 AOS.init();
 
 //Menu pages
-
 const menuBtn = document.getElementById('menuBtn')
 const menu = document.getElementById('menu')
 menuBtn.addEventListener('mouseover', function (e) {
-    menu.classList.remove('hidden')
+    menu.classList.remove('scale-0')
+    menu.classList.add('scale-100')
 })
 menuBtn.addEventListener('mouseout', function (e) {
-    menu.classList.add('hidden')
+    menu.classList.add('scale-0')
+    menu.classList.remove('scale-100')
 })
 
 menu.addEventListener('mouseover', function (e) {
-    menu.classList.remove('hidden')
+    menu.classList.remove('scale-0')
+    menu.classList.add('scale-100')
 })
 menu.addEventListener('mouseout', function (e) {
-    menu.classList.add('hidden')
+    menu.classList.add('scale-0')
+    menu.classList.remove('scale-100')
 })
 
 
@@ -36,7 +39,7 @@ modeTgl.addEventListener('click', function (e) {
     modeTglCrl.classList.toggle('translate-x-full')
     htmlTag.classList.toggle('dark')
     sunIco.classList.toggle('text-amber-400')
-    sunIco.classList.toggle('text-white')
+    sunIco.classList.toggle('text-slate-200')
     moonIco.classList.toggle('text-slate-200')
     moonIco.classList.toggle('text-[#3686A0]')
 })
@@ -79,21 +82,58 @@ const urlInput = document.getElementById('urlInput')
 let pasteData
 pasteBtn.addEventListener('click', async () => {
     pasteData = await navigator.clipboard.readText()
-    urlInput.setAttribute('value',pasteData)
+    urlInput.value = pasteData
 })
 
-//Download Function
-// let downLink, downFormatOption
-// const downOptions = document.querySelectorAll('.downOption')
-// const btnContainer = document.querySelector('#btnContainer')
-// downOptions.forEach(function (downOption){
-//     downOption.addEventListener('click',function () {
-//         downLink = 'https://www.youtube.com/watch?v=gpLJKNPtKB8'
-//         downFormatOption = downOption.value
-//         downFunc(downLink, downFormatOption)
-//     })
-// })
+//Download and info Function
+const downOptions = document.querySelectorAll('.downOption')
+const btnContainer = document.querySelector('#btnContainer')
+const infoBtn = document.querySelector('#infoBtn div')
+const exInfoBtn = document.getElementById('exInfoBtn')
+let downLink, downFormatOption, exInfoBtnNow
+downOptions.forEach(function (downOption){
+    downOption.addEventListener('click',function () {
+        downLink = urlInput.value
+        if (downLink == '') {
+            infoBtn.classList.remove('after:hidden')
+            infoBtn.classList.remove('before:hidden')
+            infoBtn.parentElement.classList.remove('scale-0')
+            infoBtn.parentElement.classList.add('scale-100')
+            btnContainer.classList.remove('scale-100')
+            btnContainer.classList.add('scale-0')
+        }else{
+            downFormatOption = downOption.value
+            downFunc(downLink, downFormatOption)
+            infoBtn.classList.add('after:hidden')
+            infoBtn.classList.add('before:hidden')
+            btnContainer.classList.add('scale-100')
+            btnContainer.classList.remove('scale-0')
+        }
+    })
+})
 
-// function downFunc(link, format) {
-//     btnContainer.setAttribute('src','https://loader.to/api/button/?url'+link+'&f='+format)
-// }
+infoBtn.parentElement.addEventListener('mouseover', function (e) {
+    exInfoBtnNow = true
+    setTimeout(() => {
+        if (exInfoBtnNow == true) {
+            exInfoBtn.classList.remove('invisible')
+            exInfoBtn.classList.add('visible')
+        }
+    }, 1000);
+})
+
+infoBtn.parentElement.addEventListener('mouseout', function (e) {
+    exInfoBtnNow = false
+    exInfoBtn.classList.add('invisible')
+    exInfoBtn.classList.remove('visible')
+})
+
+infoBtn.parentElement.addEventListener('click', function (e) {
+    alert("Paste the youtube link first!");
+    infoBtn.classList.add('after:hidden')
+    infoBtn.classList.add('before:hidden')
+})
+
+function downFunc(link, format) {
+    btnContainer.setAttribute('src','https://loader.to/api/button/?url='+link+'&f='+format)
+}
