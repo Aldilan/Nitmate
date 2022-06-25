@@ -5,19 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dist/output.css">
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <title>Nitmate</title>
 </head>
 <body>
-    <input class="before:hidden after:hidden scale-100 opacity-100 translate-x-full border-[#3686A0] text-[#3686A0] before:translate-x-full bg-[#3686A0]" type="hidden">
-    <nav class="text-black min-w-full fixed z-10 pl-5 dark:text-white">
+    <input class="rotate-45 -rotate-45 -translate-x-[0.35rem] before:hidden after:hidden scale-100 opacity-100 translate-x-full border-[#3686A0] text-[#3686A0] before:translate-x-full bg-[#3686A0]" type="hidden">
+    <nav class="text-black min-w-full fixed z-10 px-5 py-4 dark:text-white">
         <div class="w-full flex justify-between items-center relative">
             <div class="relative h-8 w-11 bg-[#B20600] rounded-lg">
                 <a class="absolute left-[0.5rem] top-1/2 -translate-y-1/2 font-ubuntu text-xl after:content-['mate'] after:ml-3 text-white after:text-black dark:after:text-white" href="">Nit</a>
             </div>
-            <button data-aos="fade-in" class="w-16 h-16" id="menuBtn"><i class='bx bx-menu text-3xl'></i></button>
-            <div class="scale-0 transition-all duration-300 bg-white z-10 absolute right-0 bottom-0 translate-y-full" id="menu">
+            <div class="relative w-6 h-4 cursor-pointer overflow-hidden group" id="menuBtn">
+                <div class="absolute h-[0.2rem] rounded-lg w-full top-0 bg-black dark:bg-white group-hover:-rotate-45 group-hover:-translate-x-[0.35rem] transition-all duration-300" id="topBurger"></div>
+                <div class="absolute h-[0.2rem] rounded-lg w-full top-1/2 -translate-y-1/2 bg-black dark:bg-white"></div>
+                <div class="absolute h-[0.2rem] rounded-lg w-full bottom-0 bg-black dark:bg-white group-hover:rotate-45 group-hover:-translate-x-[0.35rem] transition-all duration-300" id="botBurger"></div>
+            </div>
+            <div class="scale-0 transition-all duration-300 bg-white z-10 absolute right-0 bottom-0 translate-y-full peer" id="menu">
                 <div class="shadow-md px-6 py-4 dark:bg-[#101820] flex flex-col gap-10 text-center">          
                     <span>ABOUT</span>
                     <div class="flex text-lg gap-2 justify-center">

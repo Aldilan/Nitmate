@@ -4,6 +4,8 @@ AOS.init();
 //Menu pages
 const menuBtn = document.getElementById('menuBtn')
 const menu = document.getElementById('menu')
+const topBurger = document.getElementById('topBurger')
+const botBurger = document.getElementById('botBurger')
 menuBtn.addEventListener('mouseover', function (e) {
     menu.classList.remove('scale-0')
     menu.classList.add('scale-100')
@@ -16,8 +18,16 @@ menuBtn.addEventListener('mouseout', function (e) {
 menu.addEventListener('mouseover', function (e) {
     menu.classList.remove('scale-0')
     menu.classList.add('scale-100')
+    topBurger.classList.add('-rotate-45')
+    topBurger.classList.add('-translate-x-[0.35rem]')
+    botBurger.classList.add('rotate-45')
+    botBurger.classList.add('-translate-x-[0.35rem]')
 })
 menu.addEventListener('mouseout', function (e) {
+    topBurger.classList.remove('-rotate-45')
+    topBurger.classList.remove('-translate-x-[0.35rem]')
+    botBurger.classList.remove('rotate-45')
+    botBurger.classList.remove('-translate-x-[0.35rem]')
     menu.classList.add('scale-0')
     menu.classList.remove('scale-100')
 })
